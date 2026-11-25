@@ -1,0 +1,10 @@
+#!/bin/sh
+# 큰 파일 · LFS 누락 바이너리 검사 (상세 .githooks/check_large_files.py)
+ROOT="$(git rev-parse --show-toplevel)"
+for PY in python3 python py; do
+  if command -v "$PY" >/dev/null 2>&1 && "$PY" -c "import sys; sys.exit(sys.version_info < (3, 10))" >/dev/null 2>&1; then
+    exec "$PY" -I "$ROOT/.githooks/check_large_files.py"
+  fi
+done
+echo "[size-check] Python 3.10+ 를 찾지 못해 큰 파일 검사를 건너뜁니다." >&2
+exit 0
