@@ -13,6 +13,10 @@ Build/*/**
 !Build/*/PakBlacklist*.txt
 !Build/**/*.ico
 
+# 스토어(Fab) 원본 팩 창고 — 레벨이 쓰는 것만 /Game/Art/ 로 옮겨 추적
+# (tools/scripts/move_used_assets.py · 팩은 각자 Fab 에서 받아 여기에 둔다)
+/Content/StoreResources/
+
 # 맵 라이트 빌드 데이터 (에디터에서 다시 빌드)
 *_BuiltData.uasset
 
@@ -49,3 +53,4 @@ Desktop.ini
 
 # ── 기타 ──
 *.log
+/Content/StoreResources
